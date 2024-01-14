@@ -1,0 +1,11 @@
+[
+    {
+        "firstName, lastName,age, gender, isMarried": "jana, nemcova,32, F, false"
+    },
+    {
+        "firstName, lastName,age, gender, isMarried": "lucka, motykova,30, F, false"
+    },
+    {
+        "firstName, lastName,age, gender, isMarried": "misa , vondrackova, 31, F, true"
+    }
+]

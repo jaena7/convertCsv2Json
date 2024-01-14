@@ -1,0 +1,4 @@
+firstName, lastName,age, gender, isMarried
+jana, nemcova,32, F, false
+lucka, motykova,30, F, false
+misa , vondrackova, 31, F, true
