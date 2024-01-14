@@ -1,27 +1,31 @@
 import csv
 import json
 import configparser
+import logging
 
+CONFIG_FILE = 'config.ini'
+
+logging.basicConfig(level=logging.INFO)
 
 def read_config():
     config_parser = configparser.ConfigParser()
     try:
-        config_parser.read('config.ini', encoding='utf-8')
+        config_parser.read(CONFIG_FILE, encoding='utf-8')
         return config_parser
     except Exception as e:
-        print(f'Error reading config file: {e}')
+        logging.error(f'Error reading config file: {e}')
         raise SystemExit()
 
 
 def get_delimiter(configuration):
     delimiter = configuration.get('setup', 'delimiter')
-    print("delimiter:" + delimiter)
+    logging.info(f'delimiter: {delimiter}')
     return delimiter
 
 
 def get_encoding(configuration):
     encoding = configuration.get('setup', 'encoding')
-    print("encoding:" + encoding)
+    logging.info(f'encoding: {encoding}')
     return encoding
 
 
@@ -78,6 +82,6 @@ if __name__ == "__main__":
         json_data = process_data(header, csv_data)
         write_json(json_data, json_file_path, get_encoding(config))
 
-        print("Conversion completed successfully.")
+        logging.info("Conversion completed successfully.")
     except Exception as e:
-        print(f'An error occurred: {e}')
+        logging.error(f'An error occurred: {e}')
